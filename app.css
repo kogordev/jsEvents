@@ -1,0 +1,80 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+font-size: 62.5%;
+}
+
+body{
+    position: relative;
+    background-image: url("bg1.jpg");
+    font-size: 5rem;    
+}
+
+
+.wrapper{    
+    position: absolute;
+    top: 0;
+    transform: translate(50%,50%);
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#loginForm{
+    position: relative;
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: .5rem;
+    height: 50vh;
+    width: 60%;
+}
+
+input{
+margin:1rem;
+padding:1rem;
+width: 70%;
+height: 10%;
+border: none;
+background-color: #f4f4f4;
+}
+
+button{
+width: 70%;
+margin-top: 1rem;
+height: 10%;
+border: none;
+background-color: #508094;
+color: #ffff;
+}
+
+
+button:hover{
+background-color: #8aa8b3;
+color: #ffff;
+transition: all 0.5s;
+cursor: pointer;
+}
+
+.errorMessage{
+   /* margin-top: 1rem;*/
+    color:red;
+    position: absolute;    
+    bottom: 0px;
+    transform: translateY(-770%);
+}
+
+.successMessage{
+   /* margin-top: 1rem; */
+    color: rgb(141, 214, 32);
+    position: absolute;    
+    bottom: 0px;
+    transform: translateY(-770%);
+}
