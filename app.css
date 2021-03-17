@@ -68,7 +68,7 @@ cursor: pointer;
     color:red;
     position: absolute;    
     bottom: 0px;
-    transform: translateY(-770%);
+    transform: translate(-87%,-770%);
 }
 
 .successMessage{
@@ -76,5 +76,5 @@ cursor: pointer;
     color: rgb(141, 214, 32);
     position: absolute;    
     bottom: 0px;
-    transform: translateY(-770%);
+    transform: translate(-103%,-770%);
 }
