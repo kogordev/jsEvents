@@ -46,13 +46,14 @@ document.body.appendChild(wrapper);
 //EVENTs
 loginForm.addEventListener("submit", function (e) {
     e.preventDefault()
-    validate();
+    validate(username.value, password.value);
 })
 //
 
 for (let e of [username, password]) {
     e.addEventListener("input", ({ target }) => {
         const { id, value } = target;
+        if (id === "username" && !value) return;
         formData[id] = value;
     })
 }
@@ -69,20 +70,6 @@ function validate(uname, pass) {
     if (uname in users) {
 
         if (pass === users[uname].password) {
-            msg('successMessage');
-        } else {
-            msg("errorMessage")
-        }
-
-    } else {
-        msg("errorMessage")
-    }
-}
-
-function validate() {
-    if (formData[username.id] in users) {
-
-        if (formData.password === users[formData[username.id]].password) {
             msg('successMessage');
         } else {
             msg("errorMessage")
