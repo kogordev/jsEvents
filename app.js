@@ -9,7 +9,7 @@ const users = {
     }
 }
 
-
+const formData = {};
 
 const wrapper = document.createElement('div');
 wrapper.classList.add('wrapper');
@@ -31,6 +31,7 @@ password.placeholder = "password";
 //
 const submit = document.createElement('button');
 submit.id = "submit";
+submit.type = "submit";
 submit.innerText = "Login";
 //
 const msgWrapper = document.createElement('div');
@@ -43,22 +44,28 @@ document.body.appendChild(wrapper);
 
 
 //EVENTs
-submit.addEventListener("click", function (e) {
+loginForm.addEventListener("submit", function (e) {
     e.preventDefault()
-});
+    validate();
+})
+//
 
-submit.addEventListener('click', validate);
+for (let e of [username, password]) {
+    e.addEventListener("input", ({ target }) => {
+        const { id, value } = target;
+        formData[id] = value;
+    })
+}
 
 username.addEventListener("focus", clearMsg);
-
+//
 password.addEventListener("focus", clearMsg);
+//
 
 
 
-//Functions
-function validate() {
-    const uname = this.form.elements[0].value;
-    const pass = this.form.elements[1].value;
+Functions
+function validate(uname, pass) {
     if (uname in users) {
 
         if (pass === users[uname].password) {
@@ -72,6 +79,19 @@ function validate() {
     }
 }
 
+function validate() {
+    if (formData[username.id] in users) {
+
+        if (formData.password === users[formData[username.id]].password) {
+            msg('successMessage');
+        } else {
+            msg("errorMessage")
+        }
+
+    } else {
+        msg("errorMessage")
+    }
+}
 
 
 function msg(cls) {
@@ -81,7 +101,6 @@ function msg(cls) {
     const succMsg = "user successfully logged in";
     p.classList.add(cls);
     p.innerText = cls === "errorMessage" ? errMsg : succMsg;
-    //document.querySelector("#loginForm").appendChild(p)
     msgWrapper.appendChild(p);
 }
 
