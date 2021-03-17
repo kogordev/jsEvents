@@ -37,13 +37,23 @@ body{
     width: 60%;
 }
 
-input{
+.inputs{
 margin:1rem;
 padding:1rem;
 width: 70%;
 height: 10%;
 border: none;
 background-color: #f4f4f4;
+}
+
+.msgWrapper{
+position: relative;
+padding:1rem;
+width: 70%;
+height: 10%;
+border: none;
+background-color: #ffff;
+font-size: 2rem;
 }
 
 button{
@@ -64,17 +74,13 @@ cursor: pointer;
 }
 
 .errorMessage{
-   /* margin-top: 1rem;*/
     color:red;
     position: absolute;    
-    bottom: 0px;
-    transform: translate(-87%,-770%);
+    left: 0px;
 }
 
 .successMessage{
-   /* margin-top: 1rem; */
     color: rgb(141, 214, 32);
     position: absolute;    
-    bottom: 0px;
-    transform: translate(-103%,-770%);
+    left: 0px;
 }

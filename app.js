@@ -17,12 +17,14 @@ wrapper.classList.add('wrapper');
 const loginForm = document.createElement('form');
 loginForm.id = "loginForm";
 //
-const userName = document.createElement('input');
-userName.id = "username";
-userName.type = "text";
-userName.placeholder = "Username/Email";
+const username = document.createElement('input');
+username.classList.add("inputs");
+username.id = "username";
+username.type = "text";
+username.placeholder = "Username/Email";
 //
 const password = document.createElement('input');
+password.classList.add("inputs");
 password.id = "password";
 password.type = 'password';
 password.placeholder = "password";
@@ -31,7 +33,10 @@ const submit = document.createElement('button');
 submit.id = "submit";
 submit.innerText = "Login";
 //
-loginForm.append(userName, password, submit);
+const msgWrapper = document.createElement('div');
+msgWrapper.classList.add('msgWrapper');
+//
+loginForm.append(username, password, submit, msgWrapper);
 wrapper.appendChild(loginForm);
 document.body.appendChild(wrapper);
 //
@@ -44,7 +49,7 @@ submit.addEventListener("click", function (e) {
 
 submit.addEventListener('click', validate);
 
-userName.addEventListener("focus", clearMsg);
+username.addEventListener("focus", clearMsg);
 
 password.addEventListener("focus", clearMsg);
 
@@ -76,7 +81,8 @@ function msg(cls) {
     const succMsg = "user successfully logged in";
     p.classList.add(cls);
     p.innerText = cls === "errorMessage" ? errMsg : succMsg;
-    document.querySelector("#loginForm").appendChild(p)
+    //document.querySelector("#loginForm").appendChild(p)
+    msgWrapper.appendChild(p);
 }
 
 
@@ -84,8 +90,8 @@ function reset() {
     document.querySelectorAll('.successMessage').forEach(e => e.remove());
     document.querySelectorAll('.errorMessage').forEach(e => e.remove());
 
-    userName.value = "";
-    userName.focus();
+    username.value = "";
+    username.focus();
     password.value = "";
 }
 
